@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musina Queue Tracker</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body{margin:0;font-family:Arial;background:#f2f2f2}
+.header{background:#111;color:#fff;padding:12px;text-align:center;font-weight:bold}
+.qbox{padding:20px;text-align:center;color:white;font-size:24px;font-weight:bold}
+.red{background:#d00000}.yellow{background:#ffcc00;color:#000}.green{background:#00a651}
+.tbox{padding:14px;text-align:center;font-weight:bold;font-size:18px}
+.orange{background:#ff7a00;color:white}.light{background:#fff3cd}
+.btn{width:94%;margin:8px 3%;padding:16px;border-radius:14px;border:none;font-size:18px;font-weight:bold;cursor:pointer}
+.gb{background:#00a651;color:white}.ob{background:#ff6600;color:white}.bb{background:#0066cc;color:white}
+.card{background:white;margin:10px;padding:12px;border-radius:12px;box-shadow:0 2px 6px #ccc;border-left:6px solid #ff6600}
+.ad{margin:10px;background:#e9e9e9;border:1px dashed #999;padding:10px;text-align:center;font-size:12px}
+.feebox{background:yellow;color:black;padding:2px 6px;border-radius:4px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="header">🇿🇦 BEITBRIDGE QUEUE TRACKER • LIVE • MUSINA</div>
+
+<div id="qbox" class="qbox red">QUEUE: VERY LONG<br>🚛🚛🚛🚛🚛<br><span style="font-size:14px">8.2km - Live now</span></div>
+<div class="tbox light">⏱️ WAIT: <span id="wait">6 HOURS</span> - Don't waste diesel!</div>
+<div class="tbox orange">🛏️ SLEEP IN MUSINA - Save R500 diesel<br><small>Check below for food & sleep</small></div>
+
+<button class="btn gb" onclick="report()">💬 REPORT QUEUE NOW - HELP 1000 DRIVERS</button>
+
+<div class="ad">AD SPACE - Google will pay you here<br><small>Boxer Musina Special - Kota R30</small></div>
+
+<h3 style="margin:10px">🛒 NEAR YOU - WE DELIVER TO TRUCK! Same distance = delivery fee</h3>
+
+<div class="card" style="border-left:8px solid red">
+<b>🍛 MOONATE KO KASI FOOD - WE DELIVER TO YOUR TRUCK!</b><br>
+⭐ 4.9 - <span id="mdist">Calculating your distance...</span><br>
+<small>Kota R35 | Pap & Braai R60 | Mogodu R50 | Coke R20</small><br><br>
+
+<button class="btn ob" onclick="order('Kota','35')">🛵 ORDER KOTA R35 + <span class="fee">R20</span> FEE = <span class="total">R55</span></button>
+<button class="btn ob" onclick="order('Pap & Braai','60')" style="background:#cc4400">🛵 ORDER PAP R60 + <span class="fee">R20</span> = <span class="total">R80</span></button>
+<button class="btn ob" onclick="order('Mogodu','50')" style="background:#992a00">🛵 ORDER MOGODU R50 + <span class="fee">R20</span> = <span class="total">R70</span></button>
+<small>✅ Delivery 20min | Same truck queue distance | Pay Cash/Card</small>
+</div>
+
+<div class="card">🛏️ Musina Truck Lodge - 0.5km<br>Sleep R150 | Shower R30<br><button class="btn bb" style="padding:8px">📞 BOOK R500/MONTH AD</button></div>
+<div class="card">🧊 MOONATE COLD DRINKS - 0.1km<br>Coke R20 | Water R15 | Tap! Your vending!</div>
+<div class="card">🔧 Tyre Fix 24hrs - 0.8km<br>Puncture R150 - We come to you!</div>
+
+<div class="ad">AD SPACE 2 - Google pays R50 per 1000 views</div>
+
+<div style="text-align:center;padding:15px;font-size:11px;color:#666">Free for drivers • Want business here? WhatsApp: 07x xxx xxxx R500/month • Musina Queue Tracker</div>
+
+<script>
+let WHATSAPP = "27712345678"; // CHANGE TO YOUR NUMBER BOSS!
+let dist = 5.2;
+
+function init(){
+  navigator.geolocation.getCurrentPosition(p=>{
+    let d = (Math.random()*8+1).toFixed(1); // demo distance - replace with real calc later
+    dist = parseFloat(d);
+    document.getElementById('mdist').innerText = d+"km from you in queue";
+    let fee = d<=2?10:d<=5?20:30;
+    document.querySelectorAll('.fee').forEach(e=>e.innerText="R"+fee);
+    document.querySelectorAll('.total').forEach((e,i)=>{
+      let price=[35,60,50][i];
+      e.innerText="R"+(price+fee);
+    });
+    let box=document.getElementById('qbox');
+    let wait=document.getElementById('wait');
+    if(d<2){box.className="qbox green";box.innerHTML="QUEUE: SHORT<br>🚛<br><span style='font-size:14px'>"+d+"km - Go now!</span>";wait.innerText="30 MIN";}
+    else if(d<5){box.className="qbox yellow";box.innerHTML="QUEUE: MEDIUM<br>🚛🚛🚛<br><span style='font-size:14px'>"+d+"km - Wait a bit</span>";wait.innerText="2 HOURS";}
+  },()=>{});
+}
+init();
+
+function order(name,price){
+  let fee = dist<=2?10:dist<=5?20:30;
+  let total = parseInt(price)+fee;
+  navigator.geolocation.getCurrentPosition(p=>{
+    let link=`https://maps.google.com/?q=${p.coords.latitude},${p.coords.longitude}`;
+    let msg=`DUMELA MOONATE!%0AORDER: ${name} R${price}%0ADelivery: R${fee} (Distance ${dist}km - same queue)%0ATOTAL: R${total}%0A%0ALocation:%0A${link}%0ATruck: [Color/Plate]%0APayment: Cash`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+  },()=>{
+    let msg=`DUMELA MOONATE! ORDER ${name} R${price}+R${fee}=R${total} - ${dist}km in queue`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+  });
+}
+function report(){
+  let v=prompt("Queue length?\n1=SHORT (0-2km)\n2=MEDIUM (2-5km)\n3=VERY LONG (5km+)");
+  if(v) alert("Sharp boss! 🙏 You helped 1000 drivers! You are Top Helper today!");
+}
+</script>
+</body>
+</html>
