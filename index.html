@@ -3,92 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Musina Queue Tracker</title>
-<link rel="manifest" href="manifest.json">
+<title>Musina Truck Stop - Food & Rescue</title>
 <style>
-body{margin:0;font-family:Arial;background:#f2f2f2}
-.header{background:#111;color:#fff;padding:12px;text-align:center;font-weight:bold}
-.qbox{padding:20px;text-align:center;color:white;font-size:24px;font-weight:bold}
-.red{background:#d00000}.yellow{background:#ffcc00;color:#000}.green{background:#00a651}
-.tbox{padding:14px;text-align:center;font-weight:bold;font-size:18px}
-.orange{background:#ff7a00;color:white}.light{background:#fff3cd}
-.btn{width:94%;margin:8px 3%;padding:16px;border-radius:14px;border:none;font-size:18px;font-weight:bold;cursor:pointer}
-.gb{background:#00a651;color:white}.ob{background:#ff6600;color:white}.bb{background:#0066cc;color:white}
-.card{background:white;margin:10px;padding:12px;border-radius:12px;box-shadow:0 2px 6px #ccc;border-left:6px solid #ff6600}
-.ad{margin:10px;background:#e9e9e9;border:1px dashed #999;padding:10px;text-align:center;font-size:12px}
-.feebox{background:yellow;color:black;padding:2px 6px;border-radius:4px;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#111;color:#fff}
+.top{background:linear-gradient(90deg,#ff6a00,#cc3300);padding:10px;text-align:center;position:sticky;top:0;z-index:10}
+.live{font-size:11px;background:yellow;color:black;padding:3px 8px;border-radius:10px;font-weight:bold;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0.5}}
+.header{padding:16px;text-align:center}
+.logo{font-size:24px;font-weight:bold;color:#ff6a00} .sub{font-size:12px;color:#ccc}
+.card{background:#1e1e1e;border-radius:14px;margin:10px;padding:14px;border:1px solid #333}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:15px;margin-top:8px;cursor:pointer}
+.orange{background:#ff6a00;color:white} .green{background:#00c851;color:white} .red{background:#d50000;color:white}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.food{background:#252525;padding:10px;border-radius:10px;text-align:center;border:1px solid #333}
+.food b{color:#ff6a00}
+.badge{font-size:10px;padding:3px 6px;border-radius:8px;background:#ff6a00;color:white}
+.trust{font-size:11px;color:#00ff88}
+.mechanic{background:#2a1f1f;border:1px solid #ff3300}
 </style>
 </head>
 <body>
-<div class="header">🇿🇦 BEITBRIDGE QUEUE TRACKER • LIVE • MUSINA</div>
 
-<div id="qbox" class="qbox red">QUEUE: VERY LONG<br>🚛🚛🚛🚛🚛<br><span style="font-size:14px">8.2km - Live now</span></div>
-<div class="tbox light">⏱️ WAIT: <span id="wait">6 HOURS</span> - Don't waste diesel!</div>
-<div class="tbox orange">🛏️ SLEEP IN MUSINA - Save R500 diesel<br><small>Check below for food & sleep</small></div>
-
-<button class="btn gb" onclick="report()">💬 REPORT QUEUE NOW - HELP 1000 DRIVERS</button>
-
-<div class="ad">AD SPACE - Google will pay you here<br><small>Boxer Musina Special - Kota R30</small></div>
-
-<h3 style="margin:10px">🛒 NEAR YOU - WE DELIVER TO TRUCK! Same distance = delivery fee</h3>
-
-<div class="card" style="border-left:8px solid red">
-<b>🍛 MOONATE KO KASI FOOD - WE DELIVER TO YOUR TRUCK!</b><br>
-⭐ 4.9 - <span id="mdist">Calculating your distance...</span><br>
-<small>Kota R35 | Pap & Braai R60 | Mogodu R50 | Coke R20</small><br><br>
-
-<button class="btn ob" onclick="order('Kota','35')">🛵 ORDER KOTA R35 + <span class="fee">R20</span> FEE = <span class="total">R55</span></button>
-<button class="btn ob" onclick="order('Pap & Braai','60')" style="background:#cc4400">🛵 ORDER PAP R60 + <span class="fee">R20</span> = <span class="total">R80</span></button>
-<button class="btn ob" onclick="order('Mogodu','50')" style="background:#992a00">🛵 ORDER MOGODU R50 + <span class="fee">R20</span> = <span class="total">R70</span></button>
-<small>✅ Delivery 20min | Same truck queue distance | Pay Cash/Card</small>
+<div class="top">
+<span class="live">🔴 LIVE DEMO - NOT FINAL - TESTING IN MUSINA</span><br>
+<b style="font-size:13px">TRUCK QUEUE: 12.4KM • Est. 8hrs to border</b>
 </div>
 
-<div class="card">🛏️ Musina Truck Lodge - 0.5km<br>Sleep R150 | Shower R30<br><button class="btn bb" style="padding:8px">📞 BOOK R500/MONTH AD</button></div>
-<div class="card">🧊 MOONATE COLD DRINKS - 0.1km<br>Coke R20 | Water R15 | Tap! Your vending!</div>
-<div class="card">🔧 Tyre Fix 24hrs - 0.8km<br>Puncture R150 - We come to you!</div>
+<div class="header">
+<div class="logo">🔥 YOUR PUB NAME HERE 🔥</div>
+<div class="sub">Musina Beitbridge - Food | Pub | Truck Rescue</div>
+<p style="margin-top:6px;font-size:11px;color:#ff6a00">Change colour & name here boss - this is YOUR restaurant</p>
+</div>
 
-<div class="ad">AD SPACE 2 - Google pays R50 per 1000 views</div>
+<div class="card">
+<h3>🍻 PUB MENU - DRIVERS FAVOURITE</h3>
+<p style="font-size:11px;color:#aaa">More pub style - grill, beer, pap. Your full menu</p>
+<div class="grid2" style="margin-top:10px">
+<div class="food"><span class="badge">HOT 🔥</span><br><b>Pub Burger + Chips</b><br><small>Pap or Chips + Beer</small><br><b>R95</b><br><button class="btn orange" style="padding:8px" onclick="order('Pub Burger R95')">ORDER</button></div>
+<div class="food"><span class="badge">DRIVER SPECIAL</span><br><b>Braai Mix + Pap</b><br><small>Wors, Steak, Chicken</small><br><b>R120</b><br><button class="btn orange" style="padding:8px" onclick="order('Braai Mix R120')">ORDER</button></div>
+<div class="food"><b>Grilled Chicken + Pap</b><br><small>Full + Coleslaw</small><br><b>R85</b><br><button class="btn orange" style="padding:8px" onclick="order('Chicken R85')">ORDER</button></div>
+<div class="food"><b>Kota + Cold Drink</b><br><small>Your famous Kota</small><br><b>R55</b><br><button class="btn orange" style="padding:8px" onclick="order('Kota R55')">ORDER</button></div>
+</div>
+<p class="trust" style="margin-top:8px">✅ Your kitchen pictures + logo here - drivers trust you</p>
+</div>
 
-<div style="text-align:center;padding:15px;font-size:11px;color:#666">Free for drivers • Want business here? WhatsApp: 07x xxx xxxx R500/month • Musina Queue Tracker</div>
+<div class="card mechanic">
+<h3>🚨 REQUEST MOBILE MECHANIC - 24/7</h3>
+<p style="font-size:12px;color:#ffb3b3">Truck breakdown? Flat tyre? We send trusted fixer!</p>
+
+<div style="background:#111;padding:10px;border-radius:10px;margin:10px 0">
+<b>🔧 Trusted Partners - Verified & Safe</b><br>
+<small style="color:#aaa">You add their details here boss - company name, photo, certificate</small>
+<div style="display:flex;gap:8px;margin-top:8px;overflow-x:auto">
+<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Musina Tyre Fix</b><br><span class="trust">✔ Verified</span></div>
+<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Auto Rescue 24h</b><br><span class="trust">✔ Verified</span></div>
+<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Beitbridge Mobile</b><br><span class="trust">✔ Verified</span></div>
+</div>
+</div>
+
+<button class="btn red" onclick="mechanic('Flat Tyre - Need help urgently')">🛞 FLAT TYRE - REQUEST NOW</button>
+<button class="btn red" style="background:#ff3300" onclick="mechanic('Engine Problem - Truck not starting')">⚙️ ENGINE PROBLEM</button>
+<button class="btn red" style="background:#800000" onclick="mechanic('Other - Need mechanic')">🔧 OTHER BREAKDOWN</button>
+
+<p style="font-size:10px;color:#aaa;margin-top:6px">All mechanics pay you R50 marketing fee per job - safe & trusted system</p>
+</div>
+
+<div class="card">
+<h3>📍 LIVE QUEUE STATUS (Demo)</h3>
+<p style="font-size:12px">Your location: <b>13km from border</b> • Moving: Slow<br>
+<small style="color:yellow">This is demo boss - real GPS link coming in final stage</small></p>
+<button class="btn" style="background:#333;color:white" onclick="speakAlert()">🔊 TAP FOR VOICE ALERT - 20KM/10KM/2KM</button>
+</div>
 
 <script>
-let WHATSAPP = "27712345678"; // CHANGE TO YOUR NUMBER BOSS!
-let dist = 5.2;
-
-function init(){
-  navigator.geolocation.getCurrentPosition(p=>{
-    let d = (Math.random()*8+1).toFixed(1); // demo distance - replace with real calc later
-    dist = parseFloat(d);
-    document.getElementById('mdist').innerText = d+"km from you in queue";
-    let fee = d<=2?10:d<=5?20:30;
-    document.querySelectorAll('.fee').forEach(e=>e.innerText="R"+fee);
-    document.querySelectorAll('.total').forEach((e,i)=>{
-      let price=[35,60,50][i];
-      e.innerText="R"+(price+fee);
-    });
-    let box=document.getElementById('qbox');
-    let wait=document.getElementById('wait');
-    if(d<2){box.className="qbox green";box.innerHTML="QUEUE: SHORT<br>🚛<br><span style='font-size:14px'>"+d+"km - Go now!</span>";wait.innerText="30 MIN";}
-    else if(d<5){box.className="qbox yellow";box.innerHTML="QUEUE: MEDIUM<br>🚛🚛🚛<br><span style='font-size:14px'>"+d+"km - Wait a bit</span>";wait.innerText="2 HOURS";}
-  },()=>{});
+let WHATSAPP="27712345678"; // BOSS PUT YOUR NUMBER HERE!
+function order(item){
+ let msg=`TRUCK FOOD ORDER%0AItem: ${item}%0ALocation: 13km from Beitbridge%0ATruck: [Add Reg]%0A%0APlease deliver!`;
+ window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
 }
-init();
-
-function order(name,price){
-  let fee = dist<=2?10:dist<=5?20:30;
-  let total = parseInt(price)+fee;
-  navigator.geolocation.getCurrentPosition(p=>{
-    let link=`https://maps.google.com/?q=${p.coords.latitude},${p.coords.longitude}`;
-    let msg=`DUMELA MOONATE!%0AORDER: ${name} R${price}%0ADelivery: R${fee} (Distance ${dist}km - same queue)%0ATOTAL: R${total}%0A%0ALocation:%0A${link}%0ATruck: [Color/Plate]%0APayment: Cash`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
-  },()=>{
-    let msg=`DUMELA MOONATE! ORDER ${name} R${price}+R${fee}=R${total} - ${dist}km in queue`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
-  });
+function mechanic(problem){
+ let reg=prompt("Your truck reg number?");
+ let loc=prompt("Your KM location? e.g. 12km");
+ let msg=`🚨 MECHANIC RESCUE REQUEST%0AProblem: ${problem}%0AReg: ${reg}%0ALocation: ${loc} from border%0A%0ASend trusted mechanic please!`;
+ window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+ alert("Request sent! Trusted mechanic will call you in 5 mins!");
 }
-function report(){
-  let v=prompt("Queue length?\n1=SHORT (0-2km)\n2=MEDIUM (2-5km)\n3=VERY LONG (5km+)");
-  if(v) alert("Sharp boss! 🙏 You helped 1000 drivers! You are Top Helper today!");
+function speakAlert(){
+ if('speechSynthesis' in window){
+  let m=new SpeechSynthesisUtterance("Musina queue tracker active. You have 13 kilometres left to border. I will alert you at 10 and 2 kilometres. And mechanic rescue is ready.");
+  m.lang='en-ZA'; speechSynthesis.speak(m);
+ }
 }
 </script>
 </body>
