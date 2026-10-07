@@ -1,0 +1,16 @@
+{
+  "name": "Musina Beitbridge Queue Tracker",
+  "short_name": "Queue Tracker",
+  "description": "Free Beitbridge queue tracker + food delivery to truck",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#ff6600",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3774/3774083.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
