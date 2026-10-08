@@ -1,74 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSINA BEITBRIDGE - LIVE QUEUE</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>BEITBRIDGE LIVE - TRUCK QUEUE APP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial Black, Arial}
-body{background:#0a1929;color:#fff}
-.top{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:900;position:sticky;top:0;z-index:99}
-.hero{height:220px;background:linear-gradient(rgba(0,0,0,0.3),rgba(10,25,41,0.95)),url('truck1.jpg');background-size:cover;background-position:center;margin:10px;border-radius:18px;border:3px solid #ffcc00;position:relative;display:flex;align-items:end;padding:14px}
-.hero h1{color:#ffcc00;font-size:28px;text-shadow:2px 2px 4px #000}
-.hero p{font-size:12px;color:#fff}
-.km{background:linear-gradient(135deg,#002a5c 0%,#001a3a 100%);padding:20px;text-align:center;margin:10px;border-radius:18px;border:2px solid #ffcc00;box-shadow:0 0 20px rgba(255,204,0,0.3)}
-.km h1{font-size:36px;color:#ffcc00}
-.card{background:#132a47;margin:10px;border-radius:14px;padding:14px;border:1px solid #2a4a6a}
-.truck-card{background:#0a1929;border:2px solid #444;border-radius:12px;padding:8px;text-align:center;cursor:pointer}
-.truck-card.selected{border-color:#ffcc00;background:#1e3a5f;box-shadow:0 0 10px #ffcc00}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:900;margin-top:8px;cursor:pointer}
-.gold{background:#ffcc00;color:#000} .dark{background:#000;color:#ffcc00;border:1px solid #ffcc00} .red{background:#cc0000;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#0a0a0a;color:#fff;overflow-x:hidden;padding-bottom:80px}
+.header{position:sticky;top:0;z-index:100;background:#121212;border-bottom:2px solid #ff6a00;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.page{display:none;animation:fade 0.3s} .page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.hero{margin:14px;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #2a2a2a;position:relative}
+.hero img{width:100%;height:240px;object-fit:cover}
+.badge{position:absolute;top:12px;padding:6px 10px;border-radius:20px;font-size:9px;font-weight:800;letter-spacing:0.5px}
+.badge-live{left:12px;background:#ff1a1a;color:#fff;animation:pulse 1.5s infinite} 
+.badge-safe{right:12px;background:#0a7e07;color:#fff}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+.hero-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.9));padding:16px}
+.card{background:#161616;margin:14px;border:1px solid #2a2a2a;border-radius:12px;padding:16px}
+.card-orange{border-left:4px solid #ff6a00}
+.card-green{border-left:4px solid #0a7e07}
+.food-row{display:flex;gap:12px;overflow-x:auto;padding:0 14px 14px;scroll-snap-type:x mandatory}
+.food-item{min-width:150px;background:#161616;border:1px solid #2a2a2a;border-radius:12px;overflow:hidden;scroll-snap-align:start}
+.food-item img{width:100%;height:110px;object-fit:cover}
+.btn{width:100%;padding:14px;border-radius:10px;font-weight:800;font-size:11px;letter-spacing:0.8px;cursor:pointer;border:none;margin-top:10px;text-transform:uppercase}
+.btn-orange{background:#ff6a00;color:#000} .btn-green{background:#0a7e07;color:#fff} .btn-red{background:#c41e1e;color:#fff} .btn-dark{background:#0f0f0f;color:#fff;border:1px solid #333}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#121212;border-top:2px solid #222;display:flex;justify-content:space-around;padding:10px 0;z-index:100}
+.nav-item{text-align:center;font-size:9px;color:#666;cursor:pointer;padding:6px 12px;border-radius:10px;transition:0.2s} 
+.nav-item.active{color:#ff6a00;background:rgba(255,106,0,0.15);font-weight:800}
+.sasol-strip{background:#0a7e07;color:#fff;padding:8px 14px;font-size:10px;font-weight:700;display:flex;justify-content:space-between}
+.progress{height:8px;background:#0f0f0f;border-radius:4px;margin-top:10px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#ff6a00,#ffcc00);border-radius:4px}
 </style>
 </head>
 <body>
 
-<div class="top">🔴 LIVE - 12.4KM TO BEITBRIDGE - MUSINA N1</div>
+<div class="header">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:28px;height:28px;background:#ff6a00;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px">🇿🇦</div>
+<div><b style="color:#fff;font-size:13px;letter-spacing:1px">BEITBRIDGE <span style="color:#ff6a00">LIVE</span></b><br><small style="color:#888;font-size:8px">N1 MUSINA • TRUCK QUEUE • REAL TIME</small></div>
+</div>
+<div style="text-align:right"><small style="color:#4ade80;font-size:10px">● LIVE</small><br><b style="font-size:14px">12.4KM</b></div>
+</div>
 
+<div class="sasol-strip"><span>⛽ BASE: SASOL GARAGE MUSINA - SAFE POINT</span><span style="background:#fff;color:#0a7e07;padding:2px 8px;border-radius:10px;font-size:8px">24/7 SAFE</span></div>
+
+<!-- PAGE 1 LIVE -->
+<div id="p1" class="page active">
 <div class="hero">
-<div>
-<h1>📍 12.4 KM TO GATE</h1>
-<p>VOLVO CONTAINER FLEET | MOVEMENT: SLOW | WAIT 7-8HRS | Voice alerts ON</p>
+<div class="badge badge-live">🔴 LIVE • TRK-8842</div>
+<div class="badge badge-safe">✅ SAFE ZONE</div>
+<img src="truck1.jpg" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600'">
+<div class="hero-overlay">
+<h1 style="font-size:32px;font-weight:900"><span style="color:#ff6a00">12.4KM</span> TO GATE</h1>
+<p style="font-size:10px;color:#ddd;margin-top:2px">VOLVO FH500 • Estimated arrival: 1hr 22min</p>
+<p style="font-size:8px;color:#4ade80;margin-top:4px">✓ VERIFIED LIVE • GPS TRACKED • 87 trucks ahead • MOVING</p>
 </div>
 </div>
 
-<div class="km">
-<h1>12.4 KM</h1>
-<p style="color:#00ff88">▲ Queue Moving | Est: 7 Hours</p>
-<div style="background:#000;height:14px;border-radius:20px;margin-top:10px;border:1px solid #333"><div style="width:68%;background:linear-gradient(90deg,#ffcc00,#ff6600);height:14px;border-radius:20px"></div></div>
-<button class="btn dark" onclick="speak()">🔊 TAP - VOICE UPDATE</button>
-<button class="btn dark" onclick="window.open('https://wa.me/27799073779?text=SHARE MY LOCATION 12.4KM')">📤 SHARE TO FAMILY</button>
+<div class="card card-orange">
+<div style="display:flex;justify-content:space-between">
+<div><div style="font-size:8px;color:#888;letter-spacing:1.5px">DISTANCE TO SA GATE</div><div style="font-size:30px;font-weight:900">12.4 <span style="font-size:14px;color:#ff6a00">KM</span></div></div>
+<div style="text-align:right"><div style="font-size:8px;color:#888">QUEUE STATUS</div><div style="font-size:14px;font-weight:800;color:#4ade80">MOVING</div></div>
+</div>
+<div class="progress"><div class="progress-bar" style="width:68%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-top:10px;font-size:9px;color:#888">
+<span>📍 Beitbridge Border Post</span><span>🇿🇦 SA SIDE</span>
+</div>
+<div style="margin-top:10px;background:#0f0f0f;padding:10px;border-radius:8px;font-size:8px;color:#aaa;line-height:14px">
+🛡️ <b style="color:#0a7e07">SAFETY COVERAGE:</b> Toll Gate (N1) → Messina • If you break, stay in cab, enter app → We dispatch from Sasol Garage • 30KM safe zone
+</div>
 </div>
 
+<div style="padding:0 14px;display:flex;justify-content:space-between;align-items:center">
+<h3 style="font-size:11px;color:#ff6a00;letter-spacing:1px">🍔 MOONATE KO KASI - HOT TO TRUCK</h3>
+<small style="color:#ff6a00;font-size:9px;cursor:pointer" onclick="showPage(2)">VIEW ALL →</small>
+</div>
+<div class="food-row">
+<div class="food-item"><img src="chicken.jpg"><div style="padding:8px"><b style="font-size:10px">Chicken Garlic Box</b><br><small style="font-size:8px;color:#ff6a00">🔥 R85 • Ready 12min</small></div></div>
+<div class="food-item"><img src="pap.jpg"><div style="padding:8px"><b style="font-size:10px">Pap + Steak</b><br><small style="font-size:8px;color:#ff6a00">🔥 R80 • Steaming Hot</small></div></div>
+<div class="food-item"><img src="burger.jpg"><div style="padding:8px"><b style="font-size:10px">Burger Beef</b><br><small style="font-size:8px;color:#ff6a00">🔥 R95 • Classic</small></div></div>
+</div>
+</div>
+
+<!-- PAGE 2 MINE -->
+<div id="p2" class="page">
+<div style="background:#ff6a00;color:#000;padding:12px 14px;font-weight:900;font-size:13px;display:flex;justify-content:space-between"><span>MINE - Moonate Ko Kasi</span><span style="font-size:10px">0799073779</span></div>
+<div style="padding:8px 14px;background:#161616;font-size:8px;color:#888;text-align:center">Local Food & Provisions • Open now • 800m from pickup • Proudly Kasi EST 2023</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+<img src="chicken.jpg" style="width:100%;height:180px;object-fit:cover">
+<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Chicken Garlic Box</b><b style="color:#ff6a00">R85</b></div><p style="font-size:8px;color:#888;margin:6px 0">Garlic chicken + cheese + herbs • Moonate Special Box • Ready 12min</p><button class="btn btn-orange" onclick="order('CHICKEN GARLIC BOX R85')">ORDER TO TRUCK - R85</button></div>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+<img src="pap.jpg" style="width:100%;height:180px;object-fit:cover">
+<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Real Pap + Steak + Wors</b><b style="color:#ff6a00">R80</b></div><p style="font-size:8px;color:#888;margin:6px 0">White stiff pap only NOT rice + steak + wors + chakalaka • Steaming Hot</p><button class="btn btn-orange" onclick="order('REAL PAP R80')">ORDER TO TRUCK - R80</button></div>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+<img src="burger.jpg" style="width:100%;height:180px;object-fit:cover">
+<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Burger + Chips</b><b style="color:#ff6a00">R95</b></div><p style="font-size:8px;color:#888;margin:6px 0">100% beef patty + lettuce + tomato + golden chips • Classic Beef</p><button class="btn btn-orange" onclick="order('BURGER R95')">ORDER TO TRUCK - R95</button></div>
+</div>
+
+<button class="btn btn-dark" style="margin:0 14px;width:calc(100% - 28px)" onclick="window.open('https://www.facebook.com/share/1fUnVpAz5C/','_blank')">📘 OPEN FULL MENU ON FACEBOOK</button>
+</div>
+
+<!-- PAGE 3 TYRE -->
+<div id="p3" class="page">
+<div style="background:#0a7e07;color:#fff;padding:12px 14px;font-weight:900;font-size:13px">TYRE - Emergency • Arilica Tyre</div>
+<div class="card card-green" style="text-align:center">
+<div style="width:80px;height:80px;background:#ff6a00;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:36px">🛞</div>
+<h2 style="font-size:26px;color:#ff6a00;margin-top:12px;font-weight:900">18min Response</h2>
+<p style="font-size:9px;color:#aaa;margin-top:4px">Closest tyre service dispatched • From Sasol Garage Base</p>
+<div style="background:#0f0f0f;padding:12px;border-radius:8px;margin-top:14px;text-align:left">
+<p style="font-size:9px;color:#fff">Service Provider: <b style="color:#ff6a00">Arilica Tyre & Fitment</b></p>
+<p style="font-size:8px;color:#888;margin-top:4px">Distance: 4.2km away • Technician: Enroute • Case #T-00193 • <span style="background:#0a7e07;color:#fff;padding:2px 6px;border-radius:8px">ACTIVE</span></p>
+<p style="font-size:8px;color:#aaa;margin-top:8px;line-height:14px">🛡️ Stay in cab, hazards ON, lock doors. We verify Sasol/Arilica branding. Pay at safe point - no cash roadside.</p>
+</div>
+<button class="btn btn-orange" onclick="rescue('TYRE EMERGENCY - ARILICA - TOLL TO MESSINA')">[ CONTACT NOW ] - DISPATCH FROM SASOL</button>
+<button class="btn btn-dark" onclick="rescue('NEED NEW TYRE 315/80R22.5')">NEED NEW TYRE - GET QUOTE</button>
+</div>
+</div>
+
+<!-- PAGE 4 MECH -->
+<div id="p4" class="page">
+<div style="background:#1a4d8f;color:#fff;padding:12px 14px;font-weight:900;font-size:13px">MECH - Breakdown • Mobile Mechanic</div>
+<div class="card" style="border-left:4px solid #1a4d8f;text-align:center">
+<div style="width:80px;height:80px;background:#1a1f26;border:2px solid #ff6a00;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:36px">🔧</div>
+<h2 style="font-size:26px;color:#ff6a00;margin-top:12px;font-weight:900">22min Response</h2>
+<p style="font-size:9px;color:#aaa;margin-top:4px">Mobile Mechanic Dispatched • Volvo/Scania Specialist</p>
+<div style="background:#0f0f0f;padding:12px;border-radius:8px;margin-top:14px;text-align:left">
+<p style="font-size:9px;color:#fff">Mechanic: <b>Sipho M. • Certified Diesel Mech</b></p>
+<p style="font-size:8px;color:#888;margin-top:4px">Issue: Engine Breakdown • Location shared • Parts: Battery, Belts</p>
+<p style="font-size:8px;color:#aaa;margin-top:8px;line-height:14px">Coverage: Toll Gate → Messina • Base Sasol Garage • Towing to workshop if needed • Stay in cab till verified.</p>
+</div>
+<button class="btn" style="background:#1a4d8f;color:#fff" onclick="rescue('ENGINE BREAKDOWN - MECH FROM SASOL - TOLL TO MESSINA')">[ TRACK MECHANIC ] - DISPATCH NOW</button>
+<button class="btn btn-dark" onclick="rescue('NEED TOWING TO SASOL GARAGE - SAFE')">NEED TOWING TO SASOL - SAFE POINT</button>
+</div>
+</div>
+
+<!-- PAGE 5 PROFILE -->
+<div id="p5" class="page">
+<div class="card" style="text-align:center">
+<div style="width:70px;height:70px;background:#333;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:30px">👷</div>
+<h3 style="margin-top:10px;font-size:14px">Driver: Thabo Ndlovu</h3>
+<p style="font-size:9px;color:#888">Truck Reg: ND-93-TL-GP • Volvo FH500</p>
+<div style="display:flex;gap:8px;margin-top:14px">
+<div style="flex:1;background:#0f0f0f;padding:10px;border-radius:8px"><small style="font-size:8px;color:#888">Trips</small><br><b style="color:#ff6a00">124</b></div>
+<div style="flex:1;background:#0f0f0f;padding:10px;border-radius:8px"><small style="font-size:8px;color:#888">On-time</small><br><b style="color:#ff6a00">96%</b></div>
+<div style="flex:1;background:#0f0f0f;padding:10px;border-radius:8px"><small style="font-size:8px;color:#888">Rating</small><br><b style="color:#ff6a00">4.8★</b></div>
+</div>
+</div>
 <div class="card">
-<h3 style="color:#ffcc00">🚛 SELECT YOUR TRUCK - TAP PIC</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">
-<div class="truck-card selected" onclick="selectT(this,'CONTAINER VOLVO')">
-<img src="truck1.jpg" style="width:100%;height:70px;object-fit:cover;border-radius:8px"><br><b style="font-size:10px">CONTAINER</b></div>
-<div class="truck-card" onclick="selectT(this,'TANKER')"><div style="font-size:40px">🛢️</div><b style="font-size:10px">TANKER</b></div>
-<div class="truck-card" onclick="selectT(this,'FLATBED')"><div style="font-size:40px">📦</div><b style="font-size:10px">FLATBED</b></div>
+<h4 style="font-size:11px">Account</h4>
+<div style="margin-top:10px;font-size:10px;color:#aaa;line-height:32px">
+<div style="border-bottom:1px solid #222;display:flex;justify-content:space-between">Payment Methods <span>›</span></div>
+<div style="border-bottom:1px solid #222;display:flex;justify-content:space-between">Documents & Permits <span>›</span></div>
+<div style="border-bottom:1px solid #222;display:flex;justify-content:space-between">Settings <span>›</span></div>
+<div style="display:flex;justify-content:space-between">Help & Support <span>›</span></div>
 </div>
-<p style="font-size:11px;margin-top:6px">Your truck: <span id="tType" style="color:#ffcc00">CONTAINER VOLVO</span></p>
+<button class="btn btn-dark" style="margin-top:14px;border-color:#ff6a00;color:#ff6a00">[ Log Out ]</button>
 </div>
-
-<div class="card" style="border-color:#ffcc00">
-<h3>🍔 Food Delivery To Your Truck</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-<div style="background:#000;padding:10px;border-radius:10px;text-align:center"><b>Burger R95</b><br><button class="btn gold" onclick="order('BURGER R95')">ORDER TO TRUCK</button></div>
-<div style="background:#000;padding:10px;border-radius:10px;text-align:center"><b>Kota R55</b><br><button class="btn gold" onclick="order('KOTA R55')">ORDER TO TRUCK</button></div>
+<div class="card" style="text-align:center">
+<h4 style="color:#0a7e07">⛽ SASOL GARAGE MUSINA - SAFE BASE</h4>
+<p style="font-size:8px;color:#888;margin-top:6px">N1 Beitbridge Road • Toll Gate to Messina • 24/7 Safe</p>
+<p style="font-size:10px;margin-top:8px">📞 0799073779 / 0725660255</p>
 </div>
 </div>
 
-<div class="card" style="background:#2a0f0f;border-color:#c00">
-<h3 style="color:#ff4444">🚨 Rescue - 0799073779</h3>
-<button class="btn red" onclick="rescue('TYRE')">🛞 TYRE - CALL NOW</button>
-<button class="btn red" onclick="rescue('ENGINE')">⚙️ ENGINE - CALL NOW</button>
+<div class="bottom-nav">
+<div class="nav-item active" onclick="showPage(1)">📍<br>LIVE</div>
+<div class="nav-item" onclick="showPage(2)">🍱<br>MINE</div>
+<div class="nav-item" onclick="showPage(3)">🛞<br>TYRE</div>
+<div class="nav-item" onclick="showPage(4)">🔧<br>MECH</div>
+<div class="nav-item" onclick="showPage(5)">👤<br>PROFILE</div>
 </div>
 
 <script>
-const WA="27799073779"; let truck="CONTAINER VOLVO";
-function selectT(el,t){document.querySelectorAll('.truck-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');truck=t;document.getElementById('tType').innerText=t}
-function order(i){let r=prompt("Reg?");let k=prompt("KM? e.g. 12.4");window.open(`https://wa.me/${WA}?text=*ORDER*%0A${i}%0ATruck:${truck}%0AReg:${r}%0AKM:${k}`,"_blank")}
-function rescue(p){let r=prompt("Reg?");let k=prompt("KM?");window.open(`https://wa.me/${WA}?text=*RESCUE ${p}*%0ATruck:${truck}%0AReg:${r}%0AKM:${k}`,"_blank")}
-function speak(){let u=new SpeechSynthesisUtterance(`12.4 kilometers to Beitbridge. Your truck ${truck}. Queue moving slow.`);u.lang='en-ZA';speechSynthesis.speak(u)}
+const WA="27799073779";
+function showPage(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('p'+n).classList.add('active');
+document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));
+document.querySelectorAll('.nav-item')[n-1].classList.add('active');
+window.scrollTo(0,0);
+}
+function order(item){
+let reg=prompt("TRUCK REG NUMBER:");
+if(!reg)return;
+let km=prompt("YOUR KM? Toll Gate to Messina - e.g. 12.4");
+if(!km)return;
+let msg=`*MOONATE KO KASI - STANDARD ORDER*\n\nItem: ${item}\nTruck: ${reg}\nKM: ${km}\nCoverage: Toll Gate → Messina\nBase: Sasol Garage - SAFE\n\nDeliver hot to cab please!`;
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank");
+}
+function rescue(type){
+let reg=prompt("TRUCK REG:");
+if(!reg)return;
+let km=prompt("YOUR KM? Toll Gate to Messina?");
+if(!km)return;
+let msg=`*${type}*\nReg: ${reg}\nKM: ${km}\nN1 Toll Gate → Messina\nBase: Sasol Garage Musina - SAFE\nDriver staying in cab - Hazards ON - Need verified Arilica/Sasol staff`;
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank");
+}
 </script>
 </body>
 </html>
