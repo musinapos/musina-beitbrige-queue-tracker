@@ -2,127 +2,134 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEITBRIDGE LIVE - LIGHT</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<title>Beitbridge LIVE V24 - LIGHT Formation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#f5f5f5;color:#111;padding-bottom:85px}
-.header{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:3px solid #ff6a00;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-.page{display:none} .page.active{display:block}
-.hero{margin:14px;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ddd;position:relative;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-.hero img{width:100%;height:240px;object-fit:cover;background:#eee}
-.badge{position:absolute;top:12px;padding:6px 10px;border-radius:20px;font-size:9px;font-weight:800}
-.badge-live{left:12px;background:#ff0000;color:#fff} 
-.badge-safe{right:12px;background:#0a7e07;color:#fff}
-.hero-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.85));padding:16px}
-.card{background:#ffffff;margin:14px;border:1px solid #ddd;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.food-card{background:#fff;border:1px solid #ddd;border-radius:14px;overflow:hidden;margin:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.food-card img{width:100%;height:190px;object-fit:cover;background:#f0f0f0}
-.btn{width:100%;padding:14px;border-radius:10px;font-weight:800;font-size:11px;cursor:pointer;border:none;margin-top:10px;text-transform:uppercase}
-.btn-orange{background:#ff6a00;color:#fff} .btn-green{background:#0a7e07;color:#fff} .btn-dark{background:#111;color:#fff}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #ff6a00;display:flex;justify-content:space-around;padding:10px 0;z-index:100;box-shadow:0 -2px 10px rgba(0,0,0,0.1)}
-.nav-item{text-align:center;font-size:9px;color:#888;cursor:pointer;padding:6px 12px;border-radius:10px} 
-.nav-item.active{color:#ff6a00;background:#fff2e6;font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:#f2f2f2;color:#111;padding-bottom:90px}
+.header{padding:16px;display:flex;justify-content:space-between;align-items:center;background:#ffffff}
+.page{display:none;max-width:390px;margin:0 auto;background:#f2f2f2;min-height:100vh}.page.active{display:block}
+.card-light{background:#ffffff;border-radius:14px;padding:14px;margin:12px;border:1px solid #e5e5e5;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.food-light{background:#ffffff;border-radius:14px;overflow:hidden;margin:12px;border:1px solid #e5e5e5;display:flex;gap:12px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.food-light img{width:110px;height:110px;object-fit:cover;border-radius:10px}
+.btn-orange{background:#ff6a00;color:#fff;font-weight:900;border:none;border-radius:10px;padding:12px;width:100%;margin-top:10px;font-size:13px}
+.btn-blue{background:#1a4d8f;color:#fff;font-weight:900;border:none;border-radius:10px;padding:12px;width:100%;margin-top:10px}
+.btn-red{background:#e53935;color:#fff;font-weight:900;border:none;border-radius:10px;padding:12px;width:100%;margin-top:10px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#ffffff;border-top:2px solid #ff6a00;display:flex;justify-content:space-around;padding:10px 0;z-index:999;max-width:390px;margin:0 auto;left:50%;transform:translateX(-50%);width:100%;border-radius:20px 20px 0 0;box-shadow:0 -2px 15px rgba(0,0,0,0.1)}
+.ni{font-size:9px;color:#888;text-align:center;padding:8px 14px;border-radius:8px}.ni.a{color:#ff6a00;background:#fff2e6;font-weight:900}
+.ni.b{color:#1a4d8f;background:#e6f0ff}
+.orange{color:#ff6a00}
+.truck-img{width:100%;height:240px;object-fit:cover;border-radius:14px;margin:12px 0}
+.icon-circle{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:20px auto;font-size:60px}
 </style>
 </head>
 <body>
 
-<div class="header">
-<div style="display:flex;align-items:center;gap:10px">
-<div style="width:32px;height:20px;background:linear-gradient(to bottom,#000 33%,#fff 33%,#fff 66%,#e31e24 66%);border:1px solid #ccc"></div>
-<div><b style="font-size:13px">BEITBRIDGE <span style="color:#ff6a00">LIVE</span></b><br><small style="color:#666;font-size:8px">LIGHT MODE • N1 MUSINA • REAL TIME</small></div>
-</div>
-<div style="text-align:right"><small style="color:#0a7e07;font-size:10px">● LIVE</small><br><b>12.4KM</b></div>
-</div>
-
-<div style="background:#0a7e07;color:#fff;padding:8px 14px;font-size:10px;font-weight:700;display:flex;justify-content:space-between">
-<span>⛽ BASE: SASOL GARAGE MUSINA - SAFE POINT</span><span style="background:#fff;color:#0a7e07;padding:2px 8px;border-radius:10px;font-size:8px">24/7 SAFE</span>
-</div>
-
+<!-- PAGE 1 - LIVE -->
 <div id="p1" class="page active">
-<div class="hero">
-<div class="badge badge-live">🔴 LIVE • TRK-8842</div>
-<div class="badge badge-safe">✅ SAFE ZONE</div>
-<img src="truck1.jpg" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800'; this.style.background='#ddd'">
-<div class="hero-overlay">
-<h1 style="font-size:32px;font-weight:900;color:#fff"><span style="color:#ff6a00">12.4KM</span> TO GATE</h1>
-<p style="font-size:10px;color:#fff">VOLVO FH500 • Estimated: 1hr 22min • 87 trucks ahead</p>
-<p style="font-size:8px;color:#4ade80">✓ VERIFIED LIVE • GPS • MOVING • TOLL GATE → MESSINA</p>
+<div class="header">
+<h1 style="color:#ff6a00;font-size:28px;font-weight:900">LIVE</h1>
+<div style="background:#f5f5f5;padding:8px;border-radius:20px;border:1px solid #e5e5e5">🔔</div>
+</div>
+<div style="margin:0 12px;background:#fff;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;border:1px solid #e5e5e5;font-size:10px"><span>🇿🇦</span><b style="color:#ff6a00">SOUTH AFRICA</b></div>
+<img class="truck-img" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80" style="margin:12px;border-radius:14px;width:calc(100% - 24px);display:block;background:#ddd">
+<div class="card-light" style="border-left:4px solid #ff6a00">
+<div style="display:flex;gap:10px;align-items:center"><span style="font-size:24px">📍</span><div><b style="font-size:16px">12.4KM TO GATE</b><br><small style="color:#666;font-size:10px">Estimated arrival: 14 min • Gate 3</small></div></div>
+<div style="margin-top:12px;background:#f0fff4;padding:8px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;border:1px solid #c6f6d5"><span style="width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block"></span><small style="color:#0a7e07;font-size:9px;font-weight:700">Border Status: LIVE • Open • Sasol Garage SAFE - Toll to Messina</small></div>
+<button class="btn-orange" onclick="show(2)">VIEW BORDER CAM</button>
 </div>
 </div>
 
-<div class="card" style="border-left:5px solid #ff6a00">
-<div style="font-size:28px;font-weight:900">12.4 <span style="font-size:14px;color:#ff6a00">KM</span></div>
-<div style="background:#eee;height:10px;margin-top:8px;border-radius:10px"><div style="width:68%;background:#ff6a00;height:10px;border-radius:10px"></div></div>
-<p style="font-size:9px;color:#666;margin-top:8px">📍 Beitbridge Border • Queue: MOVING • Coverage: Toll Gate to Messina</p>
-<div style="background:#f9f9f9;padding:10px;border-radius:8px;margin-top:10px;font-size:8px;color:#333;border:1px solid #eee">
-🛡️ <b style="color:#0a7e07">SAFETY:</b> Stay in cab if breakdown • Toll Gate → Messina • Dispatch from Sasol Garage • Verified staff only
-</div>
-</div>
-</div>
-
+<!-- PAGE 2 - MINE -->
 <div id="p2" class="page">
-<div style="background:#ff6a00;color:#fff;padding:12px 14px;font-weight:900">MINE - Moonate Ko Kasi • My Shop</div>
+<div class="header" style="flex-direction:column;align-items:flex-start;background:#fff"><h1 style="color:#ff6a00;font-size:22px">MOONATE KO KASI</h1><small style="color:#666">Food Menu • Local Eats • Sasol Garage Base</small></div>
+<div style="padding:8px 12px;background:#fff"><b style="color:#ff6a00;font-size:14px">TODAY'S MENU</b></div>
 
-<div class="food-card">
-<img src="chicken.jpg" onerror="this.src='https://images.unsplash.com/photo-1626645738196-c2a7c87a77f6?w=600'">
-<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Chicken Garlic Box</b><b style="color:#ff6a00">R85</b></div><p style="font-size:8px;color:#666;margin:6px 0">Garlic chicken + cheese + herbs • Moonate Special</p><button class="btn btn-orange" onclick="order('CHICKEN BOX R85')">ORDER TO TRUCK - R85</button></div>
+<div class="food-light">
+<div style="flex:1"><b style="font-size:16px;color:#111">Chicken<br>Garlic Box</b><br><small style="color:#666;font-size:10px">Crispy chicken with garlic sauce</small><br><b style="color:#ff6a00;margin-top:10px;display:block">R89.00</b></div>
+<img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a77f6?w=300&q=80">
+<button style="background:#ff6a00;color:#fff;width:32px;height:32px;border-radius:8px;border:none;font-weight:900;align-self:center" onclick="order('Chicken Garlic Box R89')">+</button>
 </div>
 
-<div class="food-card">
-<img src="pap.jpg" onerror="this.src='https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600'">
-<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Real Pap + Steak + Wors</b><b style="color:#ff6a00">R80</b></div><p style="font-size:8px;color:#666;margin:6px 0">White stiff pap + steak + wors + chakalaka</p><button class="btn btn-orange" onclick="order('REAL PAP R80')">ORDER TO TRUCK - R80</button></div>
+<div class="food-light">
+<div style="flex:1"><b style="font-size:16px;color:#111">Pap</b><br><small style="color:#666;font-size:10px">Traditional maize pap with gravy cheese • Real pap R80 special</small><br><b style="color:#ff6a00;margin-top:10px;display:block">R28.00</b><br><span style="background:#fff2e6;color:#ff6a00;font-size:7px;padding:2px 6px;border-radius:10px;font-weight:900">YOUR SPECIAL R80</span></div>
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=300&q=80">
+<button style="background:#ff6a00;color:#fff;width:32px;height:32px;border-radius:8px;border:none;font-weight:900;align-self:center" onclick="order('Real Pap R80')">+</button>
 </div>
 
-<div class="food-card">
-<img src="burger.jpg" onerror="this.src='https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?w=600'">
-<div style="padding:14px"><div style="display:flex;justify-content:space-between"><b>Burger + Chips</b><b style="color:#ff6a00">R95</b></div><p style="font-size:8px;color:#666;margin:6px 0">100% beef + lettuce + chips</p><button class="btn btn-orange" onclick="order('BURGER R95')">ORDER TO TRUCK - R95</button></div>
-</div>
+<div class="card-light" style="background:#fff7ed;border:1px solid #ffedd5;text-align:center"><small style="color:#ff6a00;font-weight:700">Order now • Delivery ~20min • To your truck • Sasol Base SAFE</small></div>
+<div style="margin:12px;text-align:center;background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e5e5"><img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/27799073779?text=ORDER" style="width:80px;border-radius:8px"><br><small style="font-size:8px;color:#666">Scan to Order • WhatsApp 0799073779</small></div>
 </div>
 
+<!-- PAGE 3 - TYRE -->
 <div id="p3" class="page">
-<div style="background:#0a7e07;color:#fff;padding:12px 14px;font-weight:900">TYRE - Arilica Tyre • Sasol Base</div>
-<div class="card" style="text-align:center;border-left:5px solid #0a7e07">
-<div style="font-size:50px">🛞</div>
-<h2 style="font-size:26px;color:#ff6a00;font-weight:900;margin-top:8px">18min Response</h2>
-<p style="font-size:9px;color:#666">Closest tyre service from Sasol Garage</p>
-<div style="background:#f5f5f5;padding:12px;border-radius:8px;margin-top:12px;text-align:left;border:1px solid #eee">
-<p style="font-size:9px">Provider: <b style="color:#ff6a00">Arilica Tyre</b> • 4.2km away • ACTIVE</p>
-<p style="font-size:8px;color:#333;margin-top:6px">🛡️ Stay in cab, hazards ON, lock doors. Pay at Sasol safe point.</p>
+<div class="header" style="justify-content:center;text-align:center;background:#fff"><h1 style="color:#ff6a00;font-size:22px;font-weight:900;text-align:center">EMERGENCY<br>TYRE REPAIR</h1></div>
+<div class="icon-circle" style="background:#fff2e6;color:#ff6a00;border:2px solid #ffedd5">🛞</div>
+<div style="text-align:center;color:#111;font-size:12px;font-weight:600">24/7 Roadside Assistance</div>
+<div style="margin:12px"><button class="btn-red">⚠️ EMERGENCY REPAIR</button></div>
+<div class="card-light">
+<div style="display:flex;align-items:center;gap:10px;color:#666;font-size:11px">🕒 Average response: 18min</div>
+<div style="margin-top:14px;display:flex;align-items:center;gap:10px"><span style="font-size:20px">📍</span><div><small style="color:#666">Nearest team:</small><br><b style="font-size:13px;color:#111">3.2km away • Sasol Garage</b></div></div>
+<small style="color:#888;font-size:9px;display:block;margin-top:10px">Report puncture, blowout or flat tyre • Toll Gate to Messina coverage</small>
+<small style="color:#ff6a00;font-size:9px;display:block;margin-top:8px;font-weight:700">Help is on the way once you confirm</small>
 </div>
-<button class="btn btn-orange" onclick="rescue('TYRE EMERGENCY - SASOL BASE')">🛞 CONTACT NOW - DISPATCH</button>
-</div>
+<div style="margin:12px;text-align:center;background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e5e5"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/27799073779?text=TYRE" style="width:70px;border-radius:8px"><br><button class="btn-orange" onclick="rescue('TYRE EMERGENCY')">CALL TYRE TEAM NOW - SASOL BASE</button></div>
 </div>
 
+<!-- PAGE 4 - MECH -->
 <div id="p4" class="page">
-<div style="background:#1a4d8f;color:#fff;padding:12px 14px;font-weight:900">MECH - Mobile Mechanic • Sasol</div>
-<div class="card" style="text-align:center;border-left:5px solid #1a4d8f">
-<div style="font-size:50px">🔧</div>
-<h2 style="font-size:26px;color:#ff6a00;font-weight:900;margin-top:8px">22min Response</h2>
-<p style="font-size:9px;color:#666">Volvo/Scania Specialist • Toll to Messina</p>
-<button class="btn" style="background:#1a4d8f;color:#fff;margin-top:12px" onclick="rescue('ENGINE BREAKDOWN - MECH SASOL')">🔧 TRACK MECHANIC - DISPATCH</button>
-<button class="btn btn-dark" onclick="rescue('NEED TOWING TO SASOL')">TOWING TO SASOL - SAFE</button>
+<div class="header" style="justify-content:center;text-align:center;background:#fff"><h1 style="color:#ff6a00;font-size:22px;font-weight:900">MECHANIC<br>BREAKDOWN</h1></div>
+<div class="icon-circle" style="background:#dbeafe;color:#1a4d8f">🔧</div>
+<div style="text-align:center;color:#111;font-size:12px;font-weight:600">On-call Mechanic Service</div>
+<div style="margin:12px"><button class="btn-blue">MECHANIC SERVICE 🔧</button></div>
+<div class="card-light">
+<div style="color:#1a4d8f;font-size:10px;font-weight:700">● Status:<br><b>4 Mechanics Available • Nearby • Sasol Base SAFE</b></div>
+<div style="margin-top:12px;color:#666;font-size:10px">⚙️ Engine • Battery • Hydraulics • Diagnostics</div>
+<div style="margin-top:10px;color:#666;font-size:10px">🕒 Average response: ~22min</div>
+<button class="btn-blue" style="background:#fff;border:2px solid #1a4d8f;color:#1a4d8f;margin-top:14px" onclick="rescue('MECHANIC BREAKDOWN')">CALL MECHANIC NOW</button>
 </div>
 </div>
 
+<!-- PAGE 5 - PROFILE -->
 <div id="p5" class="page">
-<div class="card" style="text-align:center"><div style="font-size:50px">👷</div><h3>Driver: Thabo Ndlovu</h3><p style="font-size:9px;color:#666">ND-93-TL-GP • Volvo FH500 • 124 Trips • 4.8★</p></div>
-<div class="card" style="text-align:center;background:#0a7e07;color:#fff"><h4>⛽ SASOL GARAGE MUSINA</h4><p style="font-size:9px;margin-top:4px">Toll Gate → Messina Safe Base • 24/7</p><p style="font-size:11px;margin-top:8px">📞 0799073779 / 0725660255</p></div>
+<div class="header" style="justify-content:center;background:#fff"><h1 style="color:#ff6a00;font-size:24px">PROFILE</h1></div>
+<div style="text-align:center;margin-top:10px;background:#fff;padding:16px;margin:12px;border-radius:14px;border:1px solid #e5e5e5">
+<div style="width:90px;height:90px;background:linear-gradient(135deg,#ff6a00,#ff9500);border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff">👷</div>
+<h3 style="margin-top:10px;color:#111">Thabo Nkosi</h3><small style="color:#888">Driver • Truck ID: VOL-7421 • ND-93-TL-GP</small>
+<div style="display:flex;justify-content:center;gap:20px;margin-top:16px">
+<div><b style="color:#ff6a00">127</b><br><small style="color:#888;font-size:10px">Trips</small></div>
+<div><b style="color:#ff6a00">4.8★</b><br><small style="color:#888;font-size:10px">Rating</small></div>
+<div><b style="color:#ff6a00">320h</b><br><small style="color:#888;font-size:10px">Hours</small></div>
+</div>
+</div>
+<div style="padding:0 12px;margin-top:10px"><b style="color:#ff6a00;font-size:12px">Account</b></div>
+<div class="card-light" style="margin:8px 12px;display:flex;justify-content:space-between;align-items:center"><div>👤 Personal Details</div><span style="color:#aaa">›</span></div>
+<div class="card-light" style="margin:8px 12px;display:flex;justify-content:space-between;align-items:center"><div>💳 Payment Methods</div><span style="color:#aaa">›</span></div>
+<div class="card-light" style="margin:8px 12px;display:flex;justify-content:space-between;align-items:center"><div>🚛 Vehicle Info</div><span style="color:#aaa">›</span></div>
+<div class="card-light" style="margin:8px 12px;display:flex;justify-content:space-between;align-items:center"><div>⚙️ Settings</div><span style="color:#aaa">›</span></div>
+<div style="margin:12px"><button class="btn-orange" style="background:#fff;border:2px solid #ff6a00;color:#ff6a00">Log Out</button></div>
+<div class="card-light" style="background:#f0fff4;border:1px solid #c6f6d5;text-align:center"><small style="color:#0a7e07;font-weight:700">⛽ SASOL GARAGE MUSINA - SAFE BASE<br>Toll Gate → Messina • 0799073779</small></div>
 </div>
 
-<div class="bottom-nav">
-<div class="nav-item active" onclick="showPage(1)">📍<br>LIVE</div>
-<div class="nav-item" onclick="showPage(2)">🍱<br>MINE</div>
-<div class="nav-item" onclick="showPage(3)">🛞<br>TYRE</div>
-<div class="nav-item" onclick="showPage(4)">🔧<br>MECH</div>
-<div class="nav-item" onclick="showPage(5)">👤<br>PROFILE</div>
+<div class="nav">
+<div class="ni a" id="nav1" onclick="show(1)">📍<br>LIVE</div>
+<div class="ni" id="nav2" onclick="show(2)">🍱<br>MINE</div>
+<div class="ni" id="nav3" onclick="show(3)">🛞<br>TYRE</div>
+<div class="ni" id="nav4" onclick="show(4)">🔧<br>MECH</div>
+<div class="ni" id="nav5" onclick="show(5)">👤<br>PROFILE</div>
 </div>
 
 <script>
 const WA="27799073779";
-function showPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('p'+n).classList.add('active');document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.nav-item')[n-1].classList.add('active');window.scrollTo(0,0);}
-function order(i){let r=prompt("TRUCK REG:");if(!r)return;let k=prompt("YOUR KM?");if(!k)return;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`*MOONATE ORDER*\nItem:${i}\nReg:${r}\nKM:${k}`)}`,"_blank");}
-function rescue(t){let r=prompt("TRUCK REG:");if(!r)return;let k=prompt("KM? Toll to Messina");if(!k)return;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`*${t}*\nReg:${r}\nKM:${k}\nBase Sasol - SAFE`)}`,"_blank");}
+function show(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('p'+n).classList.add('active');
+document.querySelectorAll('.ni').forEach(e=>e.classList.remove('a','b'));
+document.getElementById('nav'+n).classList.add(n==4?'b':'a');
+window.scrollTo(0,0);
+}
+function order(i){let r=prompt("Truck Reg:");if(!r)return;let k=prompt("KM?");if(!k)return;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`*ORDER ${i}* Reg:${r} KM:${k}`)}`,"_blank");}
+function rescue(t){let r=prompt("Truck Reg:");if(!r)return;let k=prompt("KM?");if(!k)return;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`*${t}* Reg:${r} KM:${k} SASOL BASE`)}`,"_blank");}
 </script>
 </body>
 </html>
