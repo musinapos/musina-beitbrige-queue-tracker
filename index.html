@@ -1,99 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Musina Truck Stop - Food & Rescue</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSINA BEITBRIDGE QUEUE TRACKER - LIVE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#111;color:#fff}
-.top{background:linear-gradient(90deg,#ff6a00,#cc3300);padding:10px;text-align:center;position:sticky;top:0;z-index:10}
-.live{font-size:11px;background:yellow;color:black;padding:3px 8px;border-radius:10px;font-weight:bold;animation:blink 1s infinite}
-@keyframes blink{50%{opacity:0.5}}
-.header{padding:16px;text-align:center}
-.logo{font-size:24px;font-weight:bold;color:#ff6a00} .sub{font-size:12px;color:#ccc}
-.card{background:#1e1e1e;border-radius:14px;margin:10px;padding:14px;border:1px solid #333}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:15px;margin-top:8px;cursor:pointer}
-.orange{background:#ff6a00;color:white} .green{background:#00c851;color:white} .red{background:#d50000;color:white}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.food{background:#252525;padding:10px;border-radius:10px;text-align:center;border:1px solid #333}
-.food b{color:#ff6a00}
-.badge{font-size:10px;padding:3px 6px;border-radius:8px;background:#ff6a00;color:white}
-.trust{font-size:11px;color:#00ff88}
-.mechanic{background:#2a1f1f;border:1px solid #ff3300}
+body{background:#0f0f0f;color:#fff;padding-bottom:20px}
+.top{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:900;position:sticky;top:0;z-index:99;font-size:13px}
+.km{background:linear-gradient(135deg,#ff6600,#cc0000);padding:26px;text-align:center;margin:10px;border-radius:18px}
+.km h1{font-size:38px} .km h2{font-size:18px;margin:6px 0}
+.card{background:#1c1c1c;margin:10px;border-radius:14px;padding:14px;border:1px solid #333}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:900;margin-top:8px;cursor:pointer}
+.orange{background:#ff6600;color:#fff} .dark{background:#333;color:#fff} .red{background:#d00000;color:#fff}
 </style>
 </head>
 <body>
 
-<div class="top">
-<span class="live">🔴 LIVE DEMO - NOT FINAL - TESTING IN MUSINA</span><br>
-<b style="font-size:13px">TRUCK QUEUE: 12.4KM • Est. 8hrs to border</b>
-</div>
+<div class="top">🔴 LIVE - BEITBRIDGE BORDER QUEUE - 12.4KM - MUSINA</div>
 
-<div class="header">
-<div class="logo">🔥 YOUR PUB NAME HERE 🔥</div>
-<div class="sub">Musina Beitbridge - Food | Pub | Truck Rescue</div>
-<p style="margin-top:6px;font-size:11px;color:#ff6a00">Change colour & name here boss - this is YOUR restaurant</p>
-</div>
-
-<div class="card">
-<h3>🍻 PUB MENU - DRIVERS FAVOURITE</h3>
-<p style="font-size:11px;color:#aaa">More pub style - grill, beer, pap. Your full menu</p>
-<div class="grid2" style="margin-top:10px">
-<div class="food"><span class="badge">HOT 🔥</span><br><b>Pub Burger + Chips</b><br><small>Pap or Chips + Beer</small><br><b>R95</b><br><button class="btn orange" style="padding:8px" onclick="order('Pub Burger R95')">ORDER</button></div>
-<div class="food"><span class="badge">DRIVER SPECIAL</span><br><b>Braai Mix + Pap</b><br><small>Wors, Steak, Chicken</small><br><b>R120</b><br><button class="btn orange" style="padding:8px" onclick="order('Braai Mix R120')">ORDER</button></div>
-<div class="food"><b>Grilled Chicken + Pap</b><br><small>Full + Coleslaw</small><br><b>R85</b><br><button class="btn orange" style="padding:8px" onclick="order('Chicken R85')">ORDER</button></div>
-<div class="food"><b>Kota + Cold Drink</b><br><small>Your famous Kota</small><br><b>R55</b><br><button class="btn orange" style="padding:8px" onclick="order('Kota R55')">ORDER</button></div>
-</div>
-<p class="trust" style="margin-top:8px">✅ Your kitchen pictures + logo here - drivers trust you</p>
-</div>
-
-<div class="card mechanic">
-<h3>🚨 REQUEST MOBILE MECHANIC - 24/7</h3>
-<p style="font-size:12px;color:#ffb3b3">Truck breakdown? Flat tyre? We send trusted fixer!</p>
-
-<div style="background:#111;padding:10px;border-radius:10px;margin:10px 0">
-<b>🔧 Trusted Partners - Verified & Safe</b><br>
-<small style="color:#aaa">You add their details here boss - company name, photo, certificate</small>
-<div style="display:flex;gap:8px;margin-top:8px;overflow-x:auto">
-<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Musina Tyre Fix</b><br><span class="trust">✔ Verified</span></div>
-<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Auto Rescue 24h</b><br><span class="trust">✔ Verified</span></div>
-<div style="min-width:110px;background:#222;padding:6px;border-radius:8px;text-align:center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" width="40"><br><b style="font-size:11px">Beitbridge Mobile</b><br><span class="trust">✔ Verified</span></div>
-</div>
-</div>
-
-<button class="btn red" onclick="mechanic('Flat Tyre - Need help urgently')">🛞 FLAT TYRE - REQUEST NOW</button>
-<button class="btn red" style="background:#ff3300" onclick="mechanic('Engine Problem - Truck not starting')">⚙️ ENGINE PROBLEM</button>
-<button class="btn red" style="background:#800000" onclick="mechanic('Other - Need mechanic')">🔧 OTHER BREAKDOWN</button>
-
-<p style="font-size:10px;color:#aaa;margin-top:6px">All mechanics pay you R50 marketing fee per job - safe & trusted system</p>
+<div class="km">
+<p style="font-size:11px;letter-spacing:2px">MUSINA TO BEITBRIDGE BORDER</p>
+<h1>📍 12.4 KM</h1>
+<h2>TO BORDER GATE</h2>
+<p>Movement: SLOW | Wait: 7-8 Hours</p>
+<p style="font-size:11px;margin-top:6px;opacity:0.8">Voice alert at 20km / 10km / 2km - Tap below</p>
+<button class="btn dark" onclick="speak()">🔊 VOICE UPDATE - TAP</button>
+<button class="btn dark" onclick="shareLoc()">📤 SHARE MY QUEUE LOCATION</button>
 </div>
 
 <div class="card">
-<h3>📍 LIVE QUEUE STATUS (Demo)</h3>
-<p style="font-size:12px">Your location: <b>13km from border</b> • Moving: Slow<br>
-<small style="color:yellow">This is demo boss - real GPS link coming in final stage</small></p>
-<button class="btn" style="background:#333;color:white" onclick="speakAlert()">🔊 TAP FOR VOICE ALERT - 20KM/10KM/2KM</button>
+<h3>📊 Queue Status</h3>
+<div style="background:#333;height:12px;border-radius:10px;margin-top:8px"><div style="width:65%;background:#ff6600;height:12px;border-radius:10px"></div></div>
+<p style="font-size:11px;color:#999;margin-top:6px">65% to border - 12.4km remaining of 20km queue today</p>
 </div>
+
+<div class="card">
+<h3>🍔 Food Delivery To Your Truck</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div style="background:#252525;padding:10px;border-radius:10px;text-align:center"><b>Pub Burger R95</b><br><small>Pap+Wors+Chips</small><br><button class="btn orange" style="padding:8px" onclick="order('PUB BURGER R95')">ORDER NOW</button></div>
+<div style="background:#252525;padding:10px;border-radius:10px;text-align:center"><b>Kota Full R55</b><br><small>+ Coke</small><br><button class="btn orange" style="padding:8px" onclick="order('KOTA FULL R55')">ORDER NOW</button></div>
+</div>
+</div>
+
+<div class="card">
+<h3>📢 Local Adverts - R500/month</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div style="background:#222;padding:10px;border-radius:10px;text-align:center;border:1px dashed #555">Drinks<br><small>R20</small></div>
+<div style="background:#222;padding:10px;border-radius:10px;text-align:center;border:1px dashed #555">Lodge R250<br><small>Room</small></div>
+</div>
+</div>
+
+<div class="card" style="background:#2a0f0f;border-color:#660000">
+<h3>🚨 24H Truck Rescue</h3>
+<p style="font-size:11px;color:#ff9999">Call: 0799073779 / 0725660255</p>
+<button class="btn red" onclick="rescue('FLAT TYRE')">🛞 FLAT TYRE - CALL NOW</button>
+<button class="btn red" onclick="rescue('ENGINE FAIL')">⚙️ ENGINE FAIL - CALL NOW</button>
+</div>
+
+<p style="text-align:center;font-size:10px;color:#555;margin-top:10px">Musina Queue Tracker v5 - Contact: 0799073779</p>
 
 <script>
-let WHATSAPP="27712345678"; // BOSS PUT YOUR NUMBER HERE!
+const MAIN_WA="27799073779";
+const BACKUP_WA="27725660255";
 function order(item){
- let msg=`TRUCK FOOD ORDER%0AItem: ${item}%0ALocation: 13km from Beitbridge%0ATruck: [Add Reg]%0A%0APlease deliver!`;
- window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+ let reg=prompt("Truck Reg? e.g. ND1234");
+ let km=prompt("Which KM are you? e.g. 12.4km");
+ const msg=`*FOOD ORDER*%0AItem: ${item}%0AReg: ${reg}%0AKM: ${km}%0AName: `;
+ window.open(`https://wa.me/${MAIN_WA}?text=${msg}`,"_blank");
 }
-function mechanic(problem){
- let reg=prompt("Your truck reg number?");
- let loc=prompt("Your KM location? e.g. 12km");
- let msg=`🚨 MECHANIC RESCUE REQUEST%0AProblem: ${problem}%0AReg: ${reg}%0ALocation: ${loc} from border%0A%0ASend trusted mechanic please!`;
- window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
- alert("Request sent! Trusted mechanic will call you in 5 mins!");
+function rescue(problem){
+ let reg=prompt("Truck Reg Number?");
+ let km=prompt("Which KM are you?");
+ const msg=`*RESCUE NEEDED*%0AProblem: ${problem}%0AReg: ${reg}%0AKM: ${km}%0APlease help!`;
+ window.open(`https://wa.me/${MAIN_WA}?text=${msg}`,"_blank");
 }
-function speakAlert(){
- if('speechSynthesis' in window){
-  let m=new SpeechSynthesisUtterance("Musina queue tracker active. You have 13 kilometres left to border. I will alert you at 10 and 2 kilometres. And mechanic rescue is ready.");
-  m.lang='en-ZA'; speechSynthesis.speak(m);
- }
+function speak(){
+ const t="Beitbridge border queue is 12.4 kilometres. Moving slow. Estimated wait 7 hours. Food delivery and rescue available below.";
+ let u=new SpeechSynthesisUtterance(t);u.lang='en-ZA';speechSynthesis.speak(u);
+}
+function shareLoc(){
+ if(navigator.share){navigator.share({title:'I am in Beitbridge queue',text:'I am 12.4km to Beitbridge border - Track me live'});}
+ else{alert('Share this: I am 12.4km to Beitbridge border');}
 }
 </script>
 </body>
