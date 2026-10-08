@@ -2,86 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSINA BEITBRIDGE QUEUE TRACKER - LIVE</title>
+<title>MUSINA BEITBRIDGE - LIVE QUEUE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0f0f0f;color:#fff;padding-bottom:20px}
-.top{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:900;position:sticky;top:0;z-index:99;font-size:13px}
-.km{background:linear-gradient(135deg,#ff6600,#cc0000);padding:26px;text-align:center;margin:10px;border-radius:18px}
-.km h1{font-size:38px} .km h2{font-size:18px;margin:6px 0}
-.card{background:#1c1c1c;margin:10px;border-radius:14px;padding:14px;border:1px solid #333}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial Black, Arial}
+body{background:#0a1929;color:#fff}
+.top{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:900;position:sticky;top:0;z-index:99}
+.hero{height:220px;background:linear-gradient(rgba(0,0,0,0.3),rgba(10,25,41,0.95)),url('truck1.jpg');background-size:cover;background-position:center;margin:10px;border-radius:18px;border:3px solid #ffcc00;position:relative;display:flex;align-items:end;padding:14px}
+.hero h1{color:#ffcc00;font-size:28px;text-shadow:2px 2px 4px #000}
+.hero p{font-size:12px;color:#fff}
+.km{background:linear-gradient(135deg,#002a5c 0%,#001a3a 100%);padding:20px;text-align:center;margin:10px;border-radius:18px;border:2px solid #ffcc00;box-shadow:0 0 20px rgba(255,204,0,0.3)}
+.km h1{font-size:36px;color:#ffcc00}
+.card{background:#132a47;margin:10px;border-radius:14px;padding:14px;border:1px solid #2a4a6a}
+.truck-card{background:#0a1929;border:2px solid #444;border-radius:12px;padding:8px;text-align:center;cursor:pointer}
+.truck-card.selected{border-color:#ffcc00;background:#1e3a5f;box-shadow:0 0 10px #ffcc00}
 .btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:900;margin-top:8px;cursor:pointer}
-.orange{background:#ff6600;color:#fff} .dark{background:#333;color:#fff} .red{background:#d00000;color:#fff}
+.gold{background:#ffcc00;color:#000} .dark{background:#000;color:#ffcc00;border:1px solid #ffcc00} .red{background:#cc0000;color:#fff}
 </style>
 </head>
 <body>
 
-<div class="top">🔴 LIVE - BEITBRIDGE BORDER QUEUE - 12.4KM - MUSINA</div>
+<div class="top">🔴 LIVE - 12.4KM TO BEITBRIDGE - MUSINA N1</div>
+
+<div class="hero">
+<div>
+<h1>📍 12.4 KM TO GATE</h1>
+<p>VOLVO CONTAINER FLEET | MOVEMENT: SLOW | WAIT 7-8HRS | Voice alerts ON</p>
+</div>
+</div>
 
 <div class="km">
-<p style="font-size:11px;letter-spacing:2px">MUSINA TO BEITBRIDGE BORDER</p>
-<h1>📍 12.4 KM</h1>
-<h2>TO BORDER GATE</h2>
-<p>Movement: SLOW | Wait: 7-8 Hours</p>
-<p style="font-size:11px;margin-top:6px;opacity:0.8">Voice alert at 20km / 10km / 2km - Tap below</p>
-<button class="btn dark" onclick="speak()">🔊 VOICE UPDATE - TAP</button>
-<button class="btn dark" onclick="shareLoc()">📤 SHARE MY QUEUE LOCATION</button>
+<h1>12.4 KM</h1>
+<p style="color:#00ff88">▲ Queue Moving | Est: 7 Hours</p>
+<div style="background:#000;height:14px;border-radius:20px;margin-top:10px;border:1px solid #333"><div style="width:68%;background:linear-gradient(90deg,#ffcc00,#ff6600);height:14px;border-radius:20px"></div></div>
+<button class="btn dark" onclick="speak()">🔊 TAP - VOICE UPDATE</button>
+<button class="btn dark" onclick="window.open('https://wa.me/27799073779?text=SHARE MY LOCATION 12.4KM')">📤 SHARE TO FAMILY</button>
 </div>
 
 <div class="card">
-<h3>📊 Queue Status</h3>
-<div style="background:#333;height:12px;border-radius:10px;margin-top:8px"><div style="width:65%;background:#ff6600;height:12px;border-radius:10px"></div></div>
-<p style="font-size:11px;color:#999;margin-top:6px">65% to border - 12.4km remaining of 20km queue today</p>
+<h3 style="color:#ffcc00">🚛 SELECT YOUR TRUCK - TAP PIC</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">
+<div class="truck-card selected" onclick="selectT(this,'CONTAINER VOLVO')">
+<img src="truck1.jpg" style="width:100%;height:70px;object-fit:cover;border-radius:8px"><br><b style="font-size:10px">CONTAINER</b></div>
+<div class="truck-card" onclick="selectT(this,'TANKER')"><div style="font-size:40px">🛢️</div><b style="font-size:10px">TANKER</b></div>
+<div class="truck-card" onclick="selectT(this,'FLATBED')"><div style="font-size:40px">📦</div><b style="font-size:10px">FLATBED</b></div>
+</div>
+<p style="font-size:11px;margin-top:6px">Your truck: <span id="tType" style="color:#ffcc00">CONTAINER VOLVO</span></p>
 </div>
 
-<div class="card">
+<div class="card" style="border-color:#ffcc00">
 <h3>🍔 Food Delivery To Your Truck</h3>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-<div style="background:#252525;padding:10px;border-radius:10px;text-align:center"><b>Pub Burger R95</b><br><small>Pap+Wors+Chips</small><br><button class="btn orange" style="padding:8px" onclick="order('PUB BURGER R95')">ORDER NOW</button></div>
-<div style="background:#252525;padding:10px;border-radius:10px;text-align:center"><b>Kota Full R55</b><br><small>+ Coke</small><br><button class="btn orange" style="padding:8px" onclick="order('KOTA FULL R55')">ORDER NOW</button></div>
+<div style="background:#000;padding:10px;border-radius:10px;text-align:center"><b>Burger R95</b><br><button class="btn gold" onclick="order('BURGER R95')">ORDER TO TRUCK</button></div>
+<div style="background:#000;padding:10px;border-radius:10px;text-align:center"><b>Kota R55</b><br><button class="btn gold" onclick="order('KOTA R55')">ORDER TO TRUCK</button></div>
 </div>
 </div>
 
-<div class="card">
-<h3>📢 Local Adverts - R500/month</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-<div style="background:#222;padding:10px;border-radius:10px;text-align:center;border:1px dashed #555">Drinks<br><small>R20</small></div>
-<div style="background:#222;padding:10px;border-radius:10px;text-align:center;border:1px dashed #555">Lodge R250<br><small>Room</small></div>
+<div class="card" style="background:#2a0f0f;border-color:#c00">
+<h3 style="color:#ff4444">🚨 Rescue - 0799073779</h3>
+<button class="btn red" onclick="rescue('TYRE')">🛞 TYRE - CALL NOW</button>
+<button class="btn red" onclick="rescue('ENGINE')">⚙️ ENGINE - CALL NOW</button>
 </div>
-</div>
-
-<div class="card" style="background:#2a0f0f;border-color:#660000">
-<h3>🚨 24H Truck Rescue</h3>
-<p style="font-size:11px;color:#ff9999">Call: 0799073779 / 0725660255</p>
-<button class="btn red" onclick="rescue('FLAT TYRE')">🛞 FLAT TYRE - CALL NOW</button>
-<button class="btn red" onclick="rescue('ENGINE FAIL')">⚙️ ENGINE FAIL - CALL NOW</button>
-</div>
-
-<p style="text-align:center;font-size:10px;color:#555;margin-top:10px">Musina Queue Tracker v5 - Contact: 0799073779</p>
 
 <script>
-const MAIN_WA="27799073779";
-const BACKUP_WA="27725660255";
-function order(item){
- let reg=prompt("Truck Reg? e.g. ND1234");
- let km=prompt("Which KM are you? e.g. 12.4km");
- const msg=`*FOOD ORDER*%0AItem: ${item}%0AReg: ${reg}%0AKM: ${km}%0AName: `;
- window.open(`https://wa.me/${MAIN_WA}?text=${msg}`,"_blank");
-}
-function rescue(problem){
- let reg=prompt("Truck Reg Number?");
- let km=prompt("Which KM are you?");
- const msg=`*RESCUE NEEDED*%0AProblem: ${problem}%0AReg: ${reg}%0AKM: ${km}%0APlease help!`;
- window.open(`https://wa.me/${MAIN_WA}?text=${msg}`,"_blank");
-}
-function speak(){
- const t="Beitbridge border queue is 12.4 kilometres. Moving slow. Estimated wait 7 hours. Food delivery and rescue available below.";
- let u=new SpeechSynthesisUtterance(t);u.lang='en-ZA';speechSynthesis.speak(u);
-}
-function shareLoc(){
- if(navigator.share){navigator.share({title:'I am in Beitbridge queue',text:'I am 12.4km to Beitbridge border - Track me live'});}
- else{alert('Share this: I am 12.4km to Beitbridge border');}
-}
+const WA="27799073779"; let truck="CONTAINER VOLVO";
+function selectT(el,t){document.querySelectorAll('.truck-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');truck=t;document.getElementById('tType').innerText=t}
+function order(i){let r=prompt("Reg?");let k=prompt("KM? e.g. 12.4");window.open(`https://wa.me/${WA}?text=*ORDER*%0A${i}%0ATruck:${truck}%0AReg:${r}%0AKM:${k}`,"_blank")}
+function rescue(p){let r=prompt("Reg?");let k=prompt("KM?");window.open(`https://wa.me/${WA}?text=*RESCUE ${p}*%0ATruck:${truck}%0AReg:${r}%0AKM:${k}`,"_blank")}
+function speak(){let u=new SpeechSynthesisUtterance(`12.4 kilometers to Beitbridge. Your truck ${truck}. Queue moving slow.`);u.lang='en-ZA';speechSynthesis.speak(u)}
 </script>
 </body>
 </html>
